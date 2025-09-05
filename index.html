@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f6f8fa;
+    }
+    .navbar {
+      background-color: #2233aa;
+      overflow: hidden;
+    }
+    .navbar a {
+      float: left;
+      color: #fff;
+      text-align: center;
+      padding: 16px 20px;
+      text-decoration: none;
+      font-size: 1.1em;
+      transition: background .2s;
+    }
+    .navbar a:hover {
+      background-color: #194386;
+    }
+    .navbar a.active {
+      background-color: #04AA6D;
+    }
+    .content {
+      padding: 40px;
+    }
+    .section {
+      display: none;
+    }
+    .section.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <a href="#" class="active" onclick="showSection('home', this)">Home</a>
+    <a href="#" onclick="showSection('certificate', this)">Certificate</a>
+    <a href="#" onclick="showSection('resume', this)">Resume</a>
+    <a href="#" onclick="showSection('contact', this)">Contact</a>
+  </div>
+
+  <!-- Content Sections -->
+  <div class="content">
+    <div id="home" class="section active">
+      <h1>Welcome to the Student Dashboard!</h1>
+      <p>Use the navigation bar to explore certificates, your resume, and contact page.</p>
+    </div>
+
+    <div id="certificate" class="section">
+      <h1>Certificates</h1>
+      <ul>
+        <li>HTML5 Fundamentals</li>
+        <li>CSS3 Advanced</li>
+        <li>JavaScript Essentials</li>
+      </ul>
+    </div>
+
+    <div id="resume" class="section">
+      <h1>Resume</h1>
+      <p><strong>Name:</strong> Student Name</p>
+      <p><strong>Email:</strong> student@email.com</p>
+      <p><strong>Education:</strong> B.Tech Computer Science</p>
+      <p><strong>Skills:</strong> HTML, CSS, JavaScript</p>
+    </div>
+
+    <div id="contact" class="section">
+      <h1>Contact</h1>
+      <p>Email: student@email.com</p>
+      <p>Phone: 123-456-7890</p>
+      <p>Location: Your City, Country</p>
+    </div>
+  </div>
+
+  <!-- Script to Switch Pages -->
+  <script>
+    function showSection(id, element) {
+      // Hide all
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      // Show selected
+      document.getElementById(id).classList.add('active');
+      // Update navbar highlight
+      document.querySelectorAll('.navbar a').forEach(a => a.classList.remove('active'));
+      element.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
